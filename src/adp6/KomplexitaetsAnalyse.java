@@ -11,14 +11,14 @@ public class KomplexitaetsAnalyse {
 		int[] arrayRadix;
 		int[] arrayQuicksort;
 		Quicksort quicksort = new Quicksort();
-		RadixSort sorterRadix = new RadixSort();
+		RadixSortModifiziert sorterRadix = new RadixSortModifiziert();
 		
 		arrayRadix = new int [(int)Math.pow(10, exponent)];
 		arrayQuicksort = new int [(int)Math.pow(10, exponent)];
 		spezialZufaellig(exponent, arrayRadix);
 		spezialZufaellig(exponent, arrayQuicksort);
 		
-		sorterRadix.sortFast(arrayRadix.length, arrayRadix);
+		arrayRadix = sorterRadix.radixsort(arrayRadix, arrayRadix.length);
 		quicksort.quickSort(arrayQuicksort, 0, arrayQuicksort.length-1, 2);
 		
 		System.out.printf("\nradixsort bei N=%d braucht %d",exponent,sorterRadix.getCounter());

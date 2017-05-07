@@ -10,15 +10,15 @@ public class TestClassSchnellesSortieren {
 	
 	@Test
 	public void sortieren(){
-		int[] zahlen10Vergleich = new int [10];
-		int[] zahlen10 = new int[10];
-		spezialBefuellt(1, zahlen10Vergleich);
+		int[] zahlen10Vergleich = new int [100];
+		int[] zahlen10 = new int[100];
+		spezialBefuellt(3, zahlen10Vergleich);
 		System.arraycopy(zahlen10Vergleich, 0, zahlen10, 0, zahlen10Vergleich.length);
-		spezialZufaellig(1, zahlen10);
+		spezialZufaellig(3, zahlen10);
 		
-		RadixSort sorter1 = new RadixSort();
+		RadixSortModifiziert sorter1 = new RadixSortModifiziert();
 		
-		zahlen10 = sorter1.sortFast(zahlen10.length, zahlen10);
+		zahlen10 = sorter1.radixsort(zahlen10, zahlen10.length);
 		for(int i = 0; i < zahlen10.length-1; i++){
 		assertEquals(zahlen10Vergleich[i], zahlen10[i]);
 		}	
