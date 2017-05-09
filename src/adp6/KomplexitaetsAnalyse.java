@@ -15,8 +15,8 @@ public class KomplexitaetsAnalyse {
 		
 		arrayRadix = new int [(int)Math.pow(10, exponent)];
 		arrayQuicksort = new int [(int)Math.pow(10, exponent)];
-		spezialZufaellig(exponent, arrayRadix);
-		spezialZufaellig(exponent, arrayQuicksort);
+		gleichmaessigBefuellenZufall(exponent, arrayRadix);
+		gleichmaessigBefuellenZufall(exponent, arrayQuicksort);
 		
 		arrayRadix = sorterRadix.radixsort(arrayRadix, arrayRadix.length);
 		quicksort.quickSort(arrayQuicksort, 0, arrayQuicksort.length-1, 2);
@@ -29,15 +29,15 @@ public class KomplexitaetsAnalyse {
 	
 	
 	
-	private static void spezialBefuellt(int k, int[] elemente) {
+	private static void gleichmaessigBefuellen(int k, int[] elemente) {
         int beginning = 700 * (int) Math.pow(10, k);
         for (int i = 0; i < elemente.length; i++) {
             elemente[i] = (int) (beginning + (100 * i) + (Math.random() * 100));
         }
     }
 	
-	public static void spezialZufaellig(int k, int[] elemente) {
-        spezialBefuellt(k, elemente);
+	public static void gleichmaessigBefuellenZufall(int k, int[] elemente) {
+        gleichmaessigBefuellen(k, elemente);
         int index, temp;
         Random random = new Random();
         for (int i = elemente.length - 1; i > 0; i--) {

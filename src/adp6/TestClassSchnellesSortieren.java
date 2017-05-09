@@ -12,9 +12,9 @@ public class TestClassSchnellesSortieren {
 	public void sortieren(){
 		int[] zahlen10Vergleich = new int [100];
 		int[] zahlen10 = new int[100];
-		spezialBefuellt(3, zahlen10Vergleich);
+		gleichmaessigBefuellen(3, zahlen10Vergleich);
 		System.arraycopy(zahlen10Vergleich, 0, zahlen10, 0, zahlen10Vergleich.length);
-		spezialZufaellig(3, zahlen10);
+		gleichmaessigBefuellenZufall(3, zahlen10);
 		
 		RadixSortModifiziert sorter1 = new RadixSortModifiziert();
 		
@@ -24,14 +24,14 @@ public class TestClassSchnellesSortieren {
 		}	
 	}
 	
-	private static void spezialBefuellt(int k, int[] elemente) {
+	private static void gleichmaessigBefuellen(int k, int[] elemente) {
         int beginning = 700 * (int) Math.pow(10, k);
         for (int i = 0; i < elemente.length; i++) {
             elemente[i] = (int) (beginning + (100 * i) + (Math.random() * 100));
         }
     }
 	
-	public static void spezialZufaellig(int k, int[] elemente) {
+	public static void gleichmaessigBefuellenZufall(int k, int[] elemente) {
         int index, temp;
         Random random = new Random();
         for (int i = elemente.length - 1; i > 0; i--) {
